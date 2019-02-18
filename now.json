@@ -2,13 +2,5 @@
   "version": 2,
   "name": "react-app-boilerplate",
   "public": false,
-  "builds": [
-    { "src": "package.json", "use": "@now/static-build" },
-    { "src": "/api/server.js", "use": "@now/node-server" }
-  ],
-  "routes": [
-    { "src": "/api/.*", "dest": "/server/server.js" },
-    { "src": "^/static/(.*)", "dest": "/static/$1" },
-    { "src": ".*", "dest": "/index.html" }
-  ]
+  "files": ["build", "api", "public", "package.json", "yarn.lock"]
 }
