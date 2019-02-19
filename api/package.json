@@ -6,8 +6,8 @@
     "name": "David Atchley (datchley@pieriandx.com)"
   },
   "scripts": {
-    "start": "micro",
-    "start:local": "micro-dev"
+    "start": "micro -l tcp://0.0.0.0:5000",
+    "start:local": "micro-dev -p 5000"
   },
   "dependencies": {
     "micro": "^9.3.3",

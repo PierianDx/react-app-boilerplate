@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-import logo from './assets/logo.svg';
+import logo from '../../assets/logo.svg';
 
 class Home extends Component {
   state = {
@@ -46,14 +45,6 @@ class Home extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
           <p>{this.state.response}</p>
           <form onSubmit={this.handleSubmit}>
             <p>
