@@ -3,4 +3,4 @@ const hello = require('./hello');
 const world = require('./world');
 
 // Simple API Gateway for our microservices (used in local dev only)
-module.exports = router(get('/hello', hello), post('/world', world));
+module.exports = router(get('/api/hello', hello), post('/api/world', world));
