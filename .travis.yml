@@ -19,9 +19,9 @@ deploy:
       all_branches: true
       master: false
   - provider: script
-    script:
-      - now --token $NOW_TOKEN
-      - npm run release # standard-version, with [skip ci] to prevent infinite loop
+    script: now --token $NOW_TOKEN &&
+      npm run release &&
+      git push --follow-tags origin master
     skip_cleanup: true
     on:
       master: true
