@@ -19,7 +19,9 @@ deploy:
       all_branches: true
       master: false
   - provider: script
-    script: now --token $NOW_TOKEN
+    script:
+      - now --token $NOW_TOKEN
+      - npm run release # standard-version, with [skip ci] to prevent infinite loop
     skip_cleanup: true
     on:
       all_branches: true
