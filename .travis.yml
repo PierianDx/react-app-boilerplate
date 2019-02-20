@@ -28,12 +28,4 @@ deploy:
       git push --follow-tags origin master
     skip_cleanup: true
     on:
-      all_branches: true
-      master: false
-  - provider: script
-    script: now --token $NOW_TOKEN &&
-      npm run release &&
-      git push --follow-tags origin master
-    skip_cleanup: true
-    on:
-      master: true
+      branch: master
