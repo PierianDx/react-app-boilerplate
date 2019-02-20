@@ -19,14 +19,13 @@ deploy:
       all_branches: true
       master: false
   - provider: script
-    script:
-      - now --token $NOW_TOKEN
-      - git config user.email "travis@travis.org"
-      - git config user.name "Travis CI"
-      - npm run release # standard-version, with [skip ci] to prevent infinite loop
-      - git remote rm origin
-      - git remote add origin https://${GITHUB_API_USER}:${GITHUB_API_KEY}@${GITHUB_REPO_REF}
-      - git push --follow-tags origin master
+    script: now --token $NOW_TOKEN &&
+      git config user.email "travis@travis.org" &&
+      git config user.name "Travis CI" &&
+      npm run release &&
+      git remote rm origin &&
+      git remote add origin https://${GITHUB_API_USER}:${GITHUB_API_KEY}@${GITHUB_REPO_REF} &&
+      git push --follow-tags origin master
     skip_cleanup: true
     on:
       master: true
