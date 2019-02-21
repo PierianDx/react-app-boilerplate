@@ -53,10 +53,5 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
-  "standard-version": {
-    "scripts": {
-      "postcommit": "git commit --amend -m \"[skip ci]\""
-    }
   }
 }
