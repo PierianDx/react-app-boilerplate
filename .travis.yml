@@ -10,7 +10,8 @@ script:
   - npm test
   - npm run test:coverage
   - npm run build
-before_deploy: npm install now --no-save # Install Now CLI on Travis
+before_deploy:
+  - npm install now --no-save # Install Now CLI on Travis
 deploy:
   - provider: script # Run a custom deployment script which we will define below
     script: now --token $NOW_TOKEN --team pieriandx &&
@@ -22,13 +23,14 @@ deploy:
   - provider: script
     script: now --token $NOW_TOKEN --team pieriandx &&
       now alias --token $NOW_TOKEN --team pieriandx app.pieriandx.xyz &&
-      git config --global user.email "travis@travis.org" &&
+      git config --global user.email "build@travis-ci.org" &&
       git config --global user.name "Travis CI" &&
-      git remote rm origin &&
-      git remote add origin https://${GITHUB_API_USER}:${GITHUB_API_KEY}@${GITHUB_REPO_REF} &&
+      git checkout $TRAVIS_BRANCH &&
       npm run release &&
       git commit --amend -m " [skip ci]" &&
-      git push --follow-tags https://${GITHUB_API_USER}:${GITHUB_API_KEY}@${GITHUB_REPO_REF} master
+      git push --follow-tags origin $TRAVIS_BRANCH &&
+      git push origin $TRAVIS_BRANCH --tags
     skip_cleanup: true
     on:
       branch: master
+      condition: -z $(git tag --points-at $TRAVIS_COMMIT)
