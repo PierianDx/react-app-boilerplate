@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "react-app-boilerplate",
+  "public": true,
+  "builds": [
+    { "src": "/build/**", "use": "@now/static" },
+    { "src": "/api/*.js", "use": "@now/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1.js" },
+    { "src": "/static/(.*)", "dest": "/build/static/$1" },
+    { "src": "/.*", "dest": "/build/index.html" }
+  ]
+}
