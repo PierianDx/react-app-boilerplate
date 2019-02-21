@@ -13,18 +13,20 @@ script:
 before_deploy: npm install now --no-save # Install Now CLI on Travis
 deploy:
   - provider: script # Run a custom deployment script which we will define below
-    script: now --token $NOW_TOKEN
+    script: now --token $NOW_TOKEN --team pieriandx &&
+      now alias --token $NOW_TOKEN --team pieriandx app.pieriandx.xyz
     skip_cleanup: true
     on:
       all_branches: true
       master: false
   - provider: script
-    script: now --token $NOW_TOKEN &&
-      git config user.email "travis@travis.org" &&
-      git config user.name "Travis CI" &&
-      npm run release &&
+    script: now --token $NOW_TOKEN --team pieriandx &&
+      now alias --token $NOW_TOKEN --team pieriandx app.pieriandx.xyz
+      git config --global user.email "travis@travis.org" &&
+      git config --global user.name "Travis CI" &&
       git remote rm origin &&
       git remote add origin https://${GITHUB_API_USER}:${GITHUB_API_KEY}@${GITHUB_REPO_REF} &&
+      npm run release &&
       git push --follow-tags origin master
     skip_cleanup: true
     on:
