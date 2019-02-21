@@ -15,13 +15,21 @@ script:
 before_deploy:
   - npm install now --no-save # Install Now CLI on Travis
 deploy:
+  # Deploys for feature/fix branches
+  - provider: script
+      script: now --token $NOW_TOKEN --team pieriandx
+      skip_cleanup: true
+      on:
+        all_branches: true
+        condition: NOT branch =~ /^(development|master)$/
+  # Deploys for development (app-dev.pieriandx.xyz)
   - provider: script # Run a custom deployment script which we will define below
     script: now --token $NOW_TOKEN --team pieriandx &&
       now alias --token $NOW_TOKEN --team pieriandx app-dev.pieriandx.xyz
     skip_cleanup: true
     on:
-      all_branches: true
-      master: false
+      branch: development
+  # Deploys for production (master) (app.pieriandx.xyz)
   - provider: script
     script: now --token $NOW_TOKEN --team pieriandx &&
       now alias --token $NOW_TOKEN --team pieriandx app.pieriandx.xyz &&
