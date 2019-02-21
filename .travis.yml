@@ -21,7 +21,7 @@ deploy:
       master: false
   - provider: script
     script: now --token $NOW_TOKEN --team pieriandx &&
-      now alias --token $NOW_TOKEN --team pieriandx app.pieriandx.xyz
+      now alias --token $NOW_TOKEN --team pieriandx app.pieriandx.xyz &&
       git config --global user.email "travis@travis.org" &&
       git config --global user.name "Travis CI" &&
       git remote rm origin &&
