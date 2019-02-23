@@ -22,14 +22,13 @@ deploy:
     skip_cleanup: true
     on:
       all_branches: true
-      condition: NOT branch IN (development, master)
+      condition: '$BRANCH != "master" && $BRANCH != "development"'
   - provider: script
     script: now --token $NOW_TOKEN -A now.ci.json --team pieriandx &&
       now alias --token $NOW_TOKEN --team pieriandx app-dev.pieriandx.xyz
     skip_cleanup: true
     on:
       branch: development
-      condition: type != pull_request
   - provider: script
     script: now --token $NOW_TOKEN -A now.ci.json --team pieriandx &&
       now alias --token $NOW_TOKEN --team pieriandx app.pieriandx.xyz &&
