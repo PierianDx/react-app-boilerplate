@@ -38,7 +38,10 @@ deploy:
       npm run release &&
       git commit --amend -m " [skip ci]" &&
       git push --follow-tags origin $TRAVIS_BRANCH &&
-      git push origin $TRAVIS_BRANCH --tags
+      git push origin $TRAVIS_BRANCH --tags &&
+      git checkout development &&
+      git merge --no-ff master &&
+      git push origin development
     skip_cleanup: true
     on:
       branch: master
