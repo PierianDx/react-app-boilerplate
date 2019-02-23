@@ -22,7 +22,7 @@ deploy:
     skip_cleanup: true
     on:
       all_branches: true
-      condition: branch NOT IN (development,master)
+      condition: NOT branch IN (development, master)
   - provider: script
     script: now --token $NOW_TOKEN -A now.ci.json --team pieriandx &&
       now alias --token $NOW_TOKEN --team pieriandx app-dev.pieriandx.xyz
