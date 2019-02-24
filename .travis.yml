@@ -35,6 +35,7 @@ deploy:
       git commit --amend -m " [skip ci]" &&
       git push --follow-tags origin $BRANCH &&
       git push origin $BRANCH --tags &&
+      git fetch origin development &&
       git checkout development &&
       git merge --no-ff master &&
       git push origin development
