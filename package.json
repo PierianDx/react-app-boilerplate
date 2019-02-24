@@ -21,7 +21,7 @@
     "test:coverage": "yarn test --coverage",
     "eject": "react-scripts eject",
     "clean": "rimraf .cache/ build coverage",
-    "release": "standard-version",
+    "release": "standard-version -m 'chore(release): v%s, see CHANGELOG for info [skip ci]'",
     "cm": "git-cz"
   },
   "browserslist": [
