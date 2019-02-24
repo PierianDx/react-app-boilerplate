@@ -1,24 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import AnotherPage from './components/routes/AnotherPage';
-import NotFound from './components/routes/NotFound';
-import Home from './components/routes/Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import AnotherPage from './containers/AnotherPage';
+import NotFound from './containers/NotFound';
+import Home from './containers/Home';
 
-import './styles/app.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import './styles/app.scss';
 
 const App = () => (
   <Router>
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/another-page/">Another Page</Link>
-          </li>
-        </ul>
-      </nav>
+      <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/another-page" component={AnotherPage} />
