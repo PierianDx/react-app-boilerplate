@@ -53,7 +53,7 @@ class Home extends Component {
       <section className="section App">
         <p className="title">Home Page</p>
         <div className="container margin-md">
-          <div className="notification">{response}</div>
+          <Notification allowClose={false}>{response}</Notification>
         </div>
         <form onSubmit={this.handleSubmit} className="margin-md">
           <div className="field">

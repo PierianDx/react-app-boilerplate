@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
+import { ReactComponent as Logo } from '../../assets/text-mark-transparent-darkbg.svg';
 
 export default () => {
   const menuRef = useRef(null);
@@ -32,7 +33,9 @@ export default () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <b className="navbar-item">PierianDx</b>
+        <b className="navbar-item">
+          <Logo height="28" width="100" />
+        </b>
 
         <button
           className={cx('navbar-burger burger as-link', { 'is-active': menuActive })}
