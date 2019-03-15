@@ -36,13 +36,14 @@ class Home extends Component {
   };
 
   render() {
+    const { response, responseToPost, post } = this.state;
     return (
       <section className="section">
         <div className="container">
           <div className="notification">
             <p className="content">
               <strong>Response from Server: </strong>
-              {this.state.response}
+              {response}
             </p>
           </div>
           <form onSubmit={this.handleSubmit}>
@@ -53,7 +54,7 @@ class Home extends Component {
                   type="text"
                   className="input"
                   placeholder="type a message here"
-                  value={this.state.post}
+                  value={post}
                   onChange={e => this.setState({ post: e.target.value })}
                 />
                 <span className="icon is-small is-left">
@@ -67,10 +68,10 @@ class Home extends Component {
               </div>
             </div>
           </form>
-          {this.state.responseToPost && (
+          {responseToPost && (
             <div className="notification">
               <p className="content">
-                <strong>Received</strong>: {this.state.responseToPost}
+                <strong>Received</strong>: {responseToPost}
               </p>
             </div>
           )}
