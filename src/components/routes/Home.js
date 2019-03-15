@@ -71,7 +71,7 @@ class Home extends Component {
           {responseToPost && (
             <div className="notification">
               <p className="content">
-                <strong>Received</strong>: {responseToPost}
+                <strong>Received:</strong> {responseToPost}
               </p>
             </div>
           )}
