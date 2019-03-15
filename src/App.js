@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import AnotherPage from './components/routes/AnotherPage';
 import NotFound from './components/routes/NotFound';
 import Home from './components/routes/Home';
@@ -20,7 +22,12 @@ const App = () => (
             />
           </a>
 
-          <button className="navbar-burger burger as-link" aria-label="menu" aria-expanded="false">
+          <button
+            type="button"
+            className="navbar-burger burger as-link"
+            aria-label="menu"
+            aria-expanded="false"
+          >
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
