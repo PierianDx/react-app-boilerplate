@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import logo from '../../assets/logo.svg';
-
 class Home extends Component {
   state = {
     response: '',
@@ -38,28 +36,47 @@ class Home extends Component {
   };
 
   render() {
+    const { response, responseToPost, post } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <p>{this.state.response}</p>
-          <form onSubmit={this.handleSubmit}>
-            <p>
-              <strong>Post to Server</strong>
+      <section className="section">
+        <div className="container">
+          <div className="notification">
+            <p className="content">
+              <strong>Response from Server: </strong>
+              {response}
             </p>
-            <input
-              type="text"
-              value={this.state.post}
-              onChange={e => this.setState({ post: e.target.value })}
-            />
-            <button type="submit">Submit</button>
+          </div>
+          <form onSubmit={this.handleSubmit}>
+            <h4 className="title">Post Message to Server</h4>
+            <div className="field has-addons">
+              <div className="control has-icons-left is-expanded">
+                <input
+                  type="text"
+                  className="input"
+                  placeholder="type a message here"
+                  value={post}
+                  onChange={e => this.setState({ post: e.target.value })}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope" />
+                </span>
+              </div>
+              <div className="control">
+                <button className="button is-primary" type="submit">
+                  Submit
+                </button>
+              </div>
+            </div>
           </form>
-          <p>{this.state.responseToPost}</p>
-        </header>
-      </div>
+          {responseToPost && (
+            <div className="notification">
+              <p className="content">
+                <strong>Received:</strong> {responseToPost}
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
     );
   }
 }
