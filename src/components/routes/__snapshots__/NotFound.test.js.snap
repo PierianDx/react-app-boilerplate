@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound should render correctly 1`] = `
+<section
+  className="section"
+>
+  <h1>
+    404 Not Found
+  </h1>
+</section>
+`;
