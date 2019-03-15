@@ -20,13 +20,7 @@ const App = () => (
             />
           </a>
 
-          <button
-            role="button"
-            className="navbar-burger burger as-link"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
+          <button className="navbar-burger burger as-link" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
