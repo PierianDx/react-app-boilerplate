@@ -20,10 +20,9 @@ const App = () => (
             />
           </a>
 
-          <a
+          <button
             role="button"
-            href
-            className="navbar-burger burger"
+            className="navbar-burger burger as-link"
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
@@ -31,7 +30,7 @@ const App = () => (
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
-          </a>
+          </button>
         </div>
         <div className="navbar-menu">
           <div className="navbar-start">
