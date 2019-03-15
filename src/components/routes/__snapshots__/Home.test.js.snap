@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render correctly 1`] = `
+<section
+  className="section"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="notification"
+    >
+      <p
+        className="content"
+      >
+        <strong>
+          Response from Server: 
+        </strong>
+      </p>
+    </div>
+    <form
+      onSubmit={[Function]}
+    >
+      <h4
+        className="title"
+      >
+        Post Message to Server
+      </h4>
+      <div
+        className="field has-addons"
+      >
+        <div
+          className="control has-icons-left is-expanded"
+        >
+          <input
+            className="input"
+            onChange={[Function]}
+            placeholder="type a message here"
+            type="text"
+            value=""
+          />
+          <span
+            className="icon is-small is-left"
+          >
+            <i
+              className="fas fa-envelope"
+            />
+          </span>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+`;
